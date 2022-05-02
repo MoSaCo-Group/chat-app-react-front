@@ -8,7 +8,7 @@ import {
 	Bars,
 	NavMenu
 } from './Elements'
-import logo from './../logo.png'
+import logo from './../svglogo.svg'
 
 const chatOptions = (
 	<Fragment>
@@ -47,7 +47,7 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
 	<Fragment>
 		<NavLink exact to='/' className='nav-link'>
-			<img src={logo} height='89px' width='89px' />
+			<img src={logo} height='169px' width='169px' />
 		</NavLink>
 	</Fragment>
 )
@@ -56,13 +56,14 @@ const Navbar = ({ user }) => {
 	return (
 		<>
 			<Nav>
-				<Bars />
 				{alwaysOptions}
-				<NavMenu>{user ? authenticatedOptions : unauthenticatedOptions}
+				<Bars />
+				<NavMenu>
+					{user && (
+						<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					)}
+					{user ? authenticatedOptions : unauthenticatedOptions}
 				</NavMenu>
-				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
-				)}
 			</Nav>
 		</>
 	)
