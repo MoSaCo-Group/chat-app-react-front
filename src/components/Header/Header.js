@@ -5,8 +5,6 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link, NavLink } from 'react-router-dom'
-import Logo from './../logo.png'
-import './Header.css'
 
 const authenticatedOptions = (
 	<Fragment>
@@ -39,10 +37,10 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='black' expand='xxl'>
+	<Navbar bg='primary' variant='dark' expand='md'>
 		<Navbar.Brand>
-			<Link to='/'>
-				<img src={Logo} className='logo' />
+			<Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>
+				react-auth-template
 			</Link>
 		</Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
