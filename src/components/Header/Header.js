@@ -5,7 +5,6 @@ import React, { Fragment } from 'react'
 import {
 	Nav,
 	NavLink,
-	Bars,
 	NavMenu
 } from './Elements'
 import logo from './../svglogo.svg'
@@ -57,7 +56,6 @@ const Navbar = ({ user }) => {
 		<>
 			<Nav>
 				{alwaysOptions}
-				<Bars />
 				<NavMenu>
 					{user && (
 						<span className='navbar-text mr-2'>Welcome, {user.email}</span>
