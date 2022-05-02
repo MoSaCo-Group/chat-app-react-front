@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import indexProfiles from './components/api/profile'
+import { indexProfiles } from '../../api/profile'
 
 class IndexProfile extends Component {
   constructor (props) {

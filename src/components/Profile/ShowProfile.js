@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import { withRouter } from 'react-router-dom'
-import { showProfile, deleteProfile } from './components/api/profile'
+import { showProfile, deleteProfile } from '../../api/profile'
 
 class ShowProfile extends Component {
   constructor (props) {
