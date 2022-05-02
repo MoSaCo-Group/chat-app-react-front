@@ -1,15 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-/* eslint-disable indent */
-/* eslint-disable no-tabs */
-import React, { Fragment } from 'react'
-import {
-	Nav,
-	NavLink,
-	Bars,
-	NavMenu
-} from './Elements'
-import logo from './../logo.png'
-
 const chatOptions = (
 	<Fragment>
 		<NavLink exact to='/chat' className='nav-link'>
@@ -35,7 +23,8 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<Fragment>
-		<NavLink to='/sign-up' className='nav-link'>
+		<NavLink to='/sign-up'
+			className='nav-link'>
 			Sign Up
 		</NavLink>
 		<NavLink to='/sign-in' className='nav-link'>
@@ -47,25 +36,19 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
 	<Fragment>
 		<NavLink exact to='/' className='nav-link'>
-			<img src={logo} height='89px' width='89px' />
+			Home
 		</NavLink>
 	</Fragment>
 )
 
-const Navbar = ({ user }) => {
-	return (
-		<>
-			<Nav>
-				<Bars />
-				{alwaysOptions}
-				<NavMenu>{user ? authenticatedOptions : unauthenticatedOptions}
-				</NavMenu>
-				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
-				)}
-			</Nav>
-		</>
-	)
-}
 
-export default Navbar
+<Nav>
+				Auth Options
+				<NavDropdown className='ml-auto'>
+					{user && (
+						<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					)}
+					{alwaysOptions}
+					{user ? authenticatedOptions : unauthenticatedOptions}
+				</NavDropdown>
+			</Nav>
