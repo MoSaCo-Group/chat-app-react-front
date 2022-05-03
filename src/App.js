@@ -14,7 +14,6 @@ import ChangePassword from './components/auth/ChangePassword'
 import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
-import IndexProfile from './components/Profile/IndexProfiles'
 
 class App extends Component {
   constructor (props) {
@@ -90,6 +89,29 @@ class App extends Component {
               path='/change-password'
               render={() => (
                 <ChangePassword msgAlert={this.msgAlert} user={user} />
+              )}
+            />
+            <AuthenticatedRoute
+              user={user}
+              path='/create-profile'
+              render={() => (
+                <CreateProfile msgAlert={this.msgAlert} user={user} />
+              )}
+            />
+            <AuthenticatedRoute
+              exact
+              user={user}
+              path='/profile/:id'
+              render={() => <ShowProfile msgAlert={this.msgAlert} user={user} />}
+            />
+            <AuthenticatedRoute
+              user={user}
+              path='/profile/:id/edit'
+              render={() => (
+                <UpdateProfile
+                  msgAlert={this.msgAlert}
+                  user={user}
+                />
               )}
             />
           </main>
