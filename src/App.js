@@ -11,6 +11,11 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
+import CreateProfile from './components/Profile/CreateProfile'
+import ShowProfile from './components/Profile/ShowProfile'
+import UpdateProfile from './components/Profile/UpdateProfile'
+import IndexProfile from './components/Profile/IndexProfiles'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -44,8 +49,8 @@ class App extends Component {
 
     return (
       <Fragment>
-	      <Header user={user} />
-	      {msgAlerts.map((msgAlert) => (
+        <Header user={user} />
+        {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
             key={msgAlert.id}
             heading={msgAlert.heading}
@@ -55,8 +60,8 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-	      <main className='container'>
-	        <Route
+        <main className='container'>
+          <Route
             path='/sign-up'
             render={() => (
               <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -85,6 +90,32 @@ class App extends Component {
             render={() => (
               <ChangePassword msgAlert={this.msgAlert} user={user} />
             )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/create-profile'
+            render={() => (
+              <CreateProfile msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            exact
+            user={user}
+            path='/profiles/:id'
+            render={() => <ShowProfile msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/profiles/:id/edit'
+            render={() => (
+              <UpdateProfile msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact
+            path='/profiles'
+            render={() => <IndexProfile msgAlert={this.msgAlert} user={user} />}
           />
         </main>
       </Fragment>
