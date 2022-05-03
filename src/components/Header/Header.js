@@ -14,11 +14,17 @@ const chatOptions = (
 		<NavLink exact to='/chat' className='nav-link'>
 			Chat
 		</NavLink>
-		<NavLink exact to='/profile' className='nav-link'>
+		<NavLink exact to='/profile/:id' className='nav-link'>
 			Profile
 		</NavLink>
 		<NavLink exact to='/create-profile' className='nav-link'>
 			Create Profile
+		</NavLink>
+		<NavLink exact to='/profile/:id/edit' className='nav-link'>
+			Edit Profile
+		</NavLink>
+		<NavLink exact to='/profile' className='nav-link'>
+			List of Users
 		</NavLink>
 	</Fragment>
 )
@@ -54,7 +60,7 @@ const alwaysOptions = (
 	</Fragment>
 )
 
-const Navbar = ({ user }) => {
+const Header = ({ user }) => {
 	return (
 		<>
 			<Nav>
@@ -70,4 +76,4 @@ const Navbar = ({ user }) => {
 	)
 }
 
-export default Navbar
+export default Header

@@ -49,8 +49,8 @@ class App extends Component {
     return (
       <Fragment>
         <Router>
-	      <Header user={user} />
-	      {msgAlerts.map((msgAlert) => (
+          <Header user={user} />
+          {msgAlerts.map((msgAlert) => (
             <AutoDismissAlert
               key={msgAlert.id}
               heading={msgAlert.heading}
@@ -60,8 +60,8 @@ class App extends Component {
               deleteAlert={this.deleteAlert}
             />
           ))}
-	      <main className='container'>
-	        <Route
+          <main className='container'>
+            <Route
               path='/sign-up'
               render={() => (
                 <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -102,18 +102,25 @@ class App extends Component {
               exact
               user={user}
               path='/profile/:id'
-              render={() => <ShowProfile msgAlert={this.msgAlert} user={user} />}
+              render={() => (
+                <ShowProfile msgAlert={this.msgAlert} user={user} />
+              )}
             />
             <AuthenticatedRoute
               user={user}
               path='/profile/:id/edit'
               render={() => (
-                <UpdateProfile
-                  msgAlert={this.msgAlert}
-                  user={user}
-                />
+                <UpdateProfile msgAlert={this.msgAlert} user={user} />
               )}
             />
+            {/* <AuthenticatedRoute
+              user={user}
+              exact
+              path='/profile'
+              render={() => (
+                <IndexProfile msgAlert={this.msgAlert} user={user} />
+              )}
+            /> */}
           </main>
         </Router>
       </Fragment>
