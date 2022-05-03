@@ -1,7 +1,9 @@
 # ReChat
 
+
 ## Introduction
 A Chat app that allows you to easily connect and chat with others in a chat room, communicating seamlessly in real time.
+
 ## Using ReChat
 1. Sign Up: If you're a first time user, sign up with your email and password.
 2. Sign In: If you're already registered, congrats! Click 'Sign In.' Change your password if needed.
@@ -10,13 +12,13 @@ A Chat app that allows you to easily connect and chat with others in a chat room
 5. Chat Log: View your messages in a chat and keep track of your conversation.
 6. Have fun! Use ReChat as a fun way to communicate with friends across the interwebs!
 
-
 ## User Stories    
 - User will be able to sign up.
 - User will be able to sign in, sign out and change password.
 - User will create a profile and be able to edit/delete profile.
 - User will be able to enter a chat room and send messages to another signed in user.
 - User will be able to view messages in a chat.
+
 
 ## Wireframes
 Initial wireframes:
@@ -58,3 +60,4 @@ Initial wireframes:
 - <a href="https://github.com/Jackson916" target="_blank">Colin Jackson</a>
 
 _Thank you for checking out our work!_
+
