@@ -17,6 +17,9 @@ const chatOptions = (
 		<NavLink exact to='/profile' className='nav-link'>
 			Profile
 		</NavLink>
+		<NavLink exact to='/create-profile' className='nav-link'>
+			Create Profile
+		</NavLink>
 	</Fragment>
 )
 

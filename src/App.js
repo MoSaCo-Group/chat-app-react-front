@@ -11,6 +11,11 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
+import CreateProfile from './components/Profile/CreateProfile'
+import ShowProfile from './components/Profile/ShowProfile'
+import UpdateProfile from './components/Profile/UpdateProfile'
+import IndexProfile from './components/Profile/IndexProfiles'
+
 class App extends Component {
   constructor (props) {
     super(props)
