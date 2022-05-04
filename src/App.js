@@ -2,6 +2,7 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import io from 'socket.io-client'
 
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
@@ -15,6 +16,9 @@ import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
 import IndexProfile from './components/Profile/IndexProfiles'
+import Chat from './components/Chat/CreateChat'
+
+const socket = io.connect('http://localhost:4741')
 
 class App extends Component {
   constructor (props) {
@@ -116,6 +120,12 @@ class App extends Component {
             exact
             path='/profiles'
             render={() => <IndexProfile msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact
+            path='/chat'
+            render={() => <Chat msgAlert={this.msgAlert} user={user} />}
           />
         </main>
       </Fragment>
