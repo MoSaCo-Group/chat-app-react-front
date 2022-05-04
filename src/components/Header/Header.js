@@ -20,13 +20,16 @@ const chatOptions = (
 		<NavLink exact to='/create-profile' className='nav-link'>
 			Create Profile
 		</NavLink>
-		<NavLink exact to='/profile/:id/edit' className='nav-link'>
-			Edit Profile
-		</NavLink>
 		<NavLink exact to='/profile' className='nav-link'>
 			List of Users
 		</NavLink>
 	</Fragment>
+)
+
+const profileOptions = (
+	<NavLink exact to='/profile/:id/edit' className='nav-link'>
+		Edit Profile
+	</NavLink>
 )
 
 const authenticatedOptions = (
@@ -63,7 +66,7 @@ const alwaysOptions = (
 const Header = ({ user }) => {
 	return (
 		<>
-			<Nav>
+			<Nav useTransparent>
 				{alwaysOptions}
 				<NavMenu>
 					{user && (
