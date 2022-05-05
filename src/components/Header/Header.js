@@ -7,15 +7,15 @@ import {
 	NavLink,
 	NavMenu
 } from './Elements'
-import logo from './../svglogo.svg'
+import rechatLogo from '../../Images/rechatLogo.png'
 
 const chatOptions = (
 	<Fragment>
-		<NavLink exact to='/Chat' className='nav-link'>
+		<NavLink exact to='/chat' className='nav-link'>
 			Chat
 		</NavLink>
 		<NavLink exact to='/create-profile' className='nav-link'>
-			Create/Update Profile
+			Create Profile
 		</NavLink>
 	</Fragment>
 )
@@ -46,7 +46,7 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
 	<Fragment>
 		<NavLink exact to='/' className='nav-link'>
-			<img src={logo} height='169px' width='169px' />
+			<img src={rechatLogo} height='169px' width='169px' />
 		</NavLink>
 	</Fragment>
 )

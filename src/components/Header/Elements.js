@@ -9,16 +9,17 @@ export const Nav = styled.nav`
 	height: 80px;
 	display: flex;
 	justify-content: space-between;
+	// padding: 0.5rem calc((100vw - 1000px) / 2);
+	margin-top: 40px;
 	z-index: 10;
 	background-color: ${({ useTransparent }) =>
 		useTransparent ? 'transparent' : 'rgba(61, 39, 84, 1)'};
-
 	/* Third Nav */
 	/* justify-content: flex-start; */
 `
 
 export const NavLink = styled(Link)`
-	color: black;
+	color: white;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -41,7 +42,7 @@ export const NavMenu = styled.div`
 	/* margin-right: 24px; */
 	/* Third Nav */
 	width: 100vw;
-    white-space: nowrap;
+	white-space: nowrap;
 	@media screen and (max-width: 768px) {
 		display: none;
 	}

@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import { createProfile } from '../../api/profile'
 import { withRouter } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
+import './profile.css'
 
 class CreateProfile extends Component {
   constructor (props) {
