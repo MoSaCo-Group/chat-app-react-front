@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import { createProfile } from '../../api/profile'
 import { withRouter } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
+import './profile.css'
 
 class CreateProfile extends Component {
   constructor (props) {
@@ -20,6 +21,12 @@ handleChange = (event) =>
   this.setState({
     [event.target.name]: event.target.value
   })
+
+setName (event) {
+  this.setState({
+    name: event.target.value
+  })
+}
 
 handleSubmit = (event) => {
   event.preventDefault()
@@ -55,42 +62,44 @@ handleSubmit = (event) => {
 render () {
   return (
     <>
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Group controlId='username'>
-          <Form.Label>User Name</Form.Label>
-          <Form.Control
-            required
-            name='username'
-            value={this.state.username}
-            placeholder='User Name'
-            onChange={this.handleChange}
-          />
-        </Form.Group>
+      <div className="outerContainer">
+        <Form className="container" onSubmit={this.handleSubmit}>
+          <Form.Group controlId='username'>
+            <Form.Label>User Name</Form.Label>
+            <Form.Control
+              required
+              name='username'
+              value={this.state.username}
+              placeholder='User Name'
+              onChange={this.handleChange}
+            />
+          </Form.Group>
 
-        <Form.Group controlId='first'>
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
-            required
-            name='first'
-            value={this.state.first}
-            placeholder='First Name'
-            onChange={this.handleChange}
-          />
-        </Form.Group>
+          <Form.Group controlId='first'>
+            <Form.Label>First Name</Form.Label>
+            <Form.Control
+              required
+              name='first'
+              value={this.state.first}
+              placeholder='First Name'
+              onChange={this.handleChange}
+            />
+          </Form.Group>
 
-        <Form.Group controlId='last'>
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            required
-            name='last'
-            value={this.state.last}
-            placeholder='Last Name'
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Button className='btn btn-primary' type='submit'>Submit
-        </Button>
-      </Form>
+          <Form.Group controlId='last'>
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+              required
+              name='last'
+              value={this.state.last}
+              placeholder='Last Name'
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Button className='btn btn-primary' type='submit'>Submit
+          </Button>
+        </Form>
+      </div>
     </>
   )
 }

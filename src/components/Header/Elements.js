@@ -5,18 +5,21 @@ import { NavLink as Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Nav = styled.nav`
-	background: #3498DB;
+	background: #3498db;
 	height: 80px;
 	display: flex;
 	justify-content: space-between;
-	padding: 0.5rem calc((100vw - 1000px) / 2);
+	// padding: 0.5rem calc((100vw - 1000px) / 2);
+	margin-top: 40px;
 	z-index: 10;
+	background-color: ${({ useTransparent }) =>
+		useTransparent ? 'transparent' : 'rgba(61, 39, 84, 1)'};
 	/* Third Nav */
 	/* justify-content: flex-start; */
 `
 
 export const NavLink = styled(Link)`
-	color: #fff;
+	color: white;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
