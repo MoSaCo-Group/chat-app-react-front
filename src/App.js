@@ -14,6 +14,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
+import Container from './components/Landing/Container'
 
 class App extends Component {
   constructor (props) {
@@ -116,6 +117,9 @@ class App extends Component {
             />
           </main>
         </Router>
+        <>
+          <Container />
+        </>
       </Fragment>
     )
   }
