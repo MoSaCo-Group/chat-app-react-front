@@ -17,7 +17,7 @@ const authenticatedOptions = (
 		<NavLink to='/create-profile' className='nav-link'>
 			Create/Update Profile
 		</NavLink>
-		<NavLink to='/chat' className='nav-link'>
+		<NavLink to='/Chat' className='nav-link'>
 			Chat Room
 		</NavLink>
 	</Fragment>

@@ -15,7 +15,7 @@ import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
 import IndexProfile from './components/Profile/IndexProfiles'
-import Chat from './components/Chat/CreateChat'
+import CreateChat from './components/Chat/CreateChat'
 
 class App extends Component {
   constructor (props) {
@@ -121,8 +121,10 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             exact
-            path='/chat'
-            render={() => <Chat msgAlert={this.msgAlert} user={user} />}
+            path='/Chat'
+            render={() => (
+              <CreateChat msgAlert={this.msgAlert} user={user} />
+            )}
           />
         </main>
       </Fragment>

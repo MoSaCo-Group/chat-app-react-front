@@ -4,11 +4,10 @@ import axios from 'axios'
 export const createChat = (data, user) => {
   return axios({
     method: 'POST',
-    url: apiUrl + '/chat/',
+    url: apiUrl + '/Chat/',
     data: {
       chat: {
-        name: data.name,
-        message: data.message
+        body: data.body
       }
     },
     headers: {
@@ -19,7 +18,7 @@ export const createChat = (data, user) => {
 
 export const indexChat = (user) => {
   return axios({
-    url: apiUrl + '/chat/',
+    url: apiUrl + '/Chat',
     method: 'GET',
     headers: {
       Authorization: `Bearer ${user.token}`

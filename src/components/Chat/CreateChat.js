@@ -2,16 +2,16 @@ import React from 'react'
 import io from 'socket.io-client'
 // import chat from '../../../../chat-app-react-back/app/models/chat'
 import { Button, InputGroup, FormControl } from 'react-bootstrap'
+import { createChat } from '../../api/chat'
 
 const socket = io('http://localhost:7165')
 
-class ChatRoomComponent extends React.Component {
+class CreateChat extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      messages: [],
-      newMessage: ''
+      body: []
     }
   }
 
@@ -28,8 +28,23 @@ class ChatRoomComponent extends React.Component {
   handleSubmit () {
     // event.preventDefault()
     socket.emit('chat', {
-      message: 'chat'
+      body: ''
     })
+    createChat()
+      .then((msgAlert) => {
+        msgAlert({
+          heading: 'Message',
+          message: 'Message Sent!',
+          variant: 'success'
+        })
+      })
+      .catch((error, msgAlert) => {
+        msgAlert({
+          heading: 'Message failed to send',
+          message: 'Message error: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   render () {
@@ -38,7 +53,7 @@ class ChatRoomComponent extends React.Component {
         <InputGroup size='sm' className="justifyContent: 'space-between'">
           <InputGroup.Text>
             <Button variant='outline-secondary' onClick={this.handleSubmit}>
-Send
+                  Send
             </Button>
           </InputGroup.Text>
           <FormControl as='textarea' aria-label='With textarea' />
@@ -48,4 +63,4 @@ Send
   }
 }
 
-export default ChatRoomComponent
+export default CreateChat
