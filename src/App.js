@@ -16,8 +16,12 @@ import CreateChat from './components/Chat/CreateChat'
 import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
+
+import IndexProfile from './components/Profile/IndexProfiles'
+
 import Container from './components/Landing/Container'
 import MoveStuffAround from './components/MoveStuffAround'
+
 
 class App extends Component {
   constructor (props) {
@@ -28,27 +32,28 @@ class App extends Component {
     }
   }
 
-  setUser = (user) => this.setState({ user })
+      setUser = (user) => this.setState({ user })
 
-  clearUser = () => this.setState({ user: null })
+      clearUser = () => this.setState({ user: null })
 
-  deleteAlert = (id) => {
-    this.setState((state) => {
-      return { msgAlerts: state.msgAlerts.filter((msg) => msg.id !== id) }
-    })
-  }
-
-  msgAlert = ({ heading, message, variant }) => {
-    const id = uuid()
-    this.setState((state) => {
-      return {
-        msgAlerts: [...state.msgAlerts, { heading, message, variant, id }]
+      deleteAlert = (id) => {
+        this.setState((state) => {
+          return { msgAlerts: state.msgAlerts.filter((msg) => msg.id !== id) }
+        })
       }
-    })
-  }
 
-  render () {
-    const { msgAlerts, user } = this.state
+      msgAlert = ({ heading, message, variant }) => {
+        const id = uuid()
+        this.setState((state) => {
+          return {
+            msgAlerts: [...state.msgAlerts, { heading, message, variant, id }]
+          }
+        })
+      }
+
+      render () {
+        const { msgAlerts, user } = this.state
+
 
     return (
       <Fragment>
@@ -132,6 +137,7 @@ class App extends Component {
       </Fragment>
     )
   }
+
 }
 
 export default App

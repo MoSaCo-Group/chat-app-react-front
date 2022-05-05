@@ -28,7 +28,16 @@ const authenticatedOptions = (
 		<NavLink to='/sign-out' className='nav-link'>
 			Sign Out
 		</NavLink>
+
+		<NavLink to='/create-profile' className='nav-link'>
+			Create/Update Profile
+		</NavLink>
+		<NavLink to='/Chat' className='nav-link'>
+			Chat Room
+		</NavLink>
+
 		{chatOptions}
+
 	</Fragment>
 )
 

@@ -2,6 +2,7 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 export const createChat = (data, user) => {
+  console.log(data)
   return axios({
     method: 'POST',
     url: apiUrl + '/Chat/',
@@ -15,6 +16,12 @@ export const createChat = (data, user) => {
     }
   })
 }
+
+// const data = {
+// chat: {
+// body: '',
+// },
+// }
 
 export const indexChat = (user) => {
   return axios({

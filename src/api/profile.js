@@ -64,3 +64,12 @@ export const deleteProfile = (id, user) => {
     }
   })
 }
+export const indexProfiles = (id, user) => {
+  return axios({
+    url: apiUrl + '/profile/',
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}

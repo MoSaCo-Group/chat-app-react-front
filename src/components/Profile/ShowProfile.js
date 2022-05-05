@@ -37,6 +37,7 @@ handleDelete = () => {
   const { match, user, msgAlert, history } = this.props
 
   deleteProfile(match.params.id, user)
+
     .then(() => history.push('/create-profile'))
     .then(() => {
       msgAlert({
