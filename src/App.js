@@ -11,6 +11,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import CreateChat from './components/Chat/CreateChat'
 
 import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
@@ -75,12 +76,7 @@ class App extends Component {
                 <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
               )}
             />
-            <Route
-              path='/critics'
-              render={() => (
-                <MoveStuffAround />
-              )}
-            />
+            <Route path='/critics' render={() => <MoveStuffAround />} />
             <AuthenticatedRoute
               user={user}
               path='/sign-out'
@@ -121,14 +117,12 @@ class App extends Component {
                 <UpdateProfile msgAlert={this.msgAlert} user={user} />
               )}
             />
-            {/* <AuthenticatedRoute
+            <AuthenticatedRoute
               user={user}
               exact
-              path='/profile'
-              render={() => (
-                <IndexProfile msgAlert={this.msgAlert} user={user} />
-              )}
-            /> */}
+              path='/Chat'
+              render={() => <CreateChat msgAlert={this.msgAlert} user={user} />}
+            />
           </main>
         </Router>
       </Fragment>
