@@ -1,7 +1,6 @@
-.person {
-    color: red;
-}
 
-.amalia {
-    width: 14000px !important;
+.quote {
+    position: absolute;
+    bottom: 0;
+    width: 100%
 }

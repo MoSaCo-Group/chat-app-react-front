@@ -11,7 +11,7 @@ import logo from './../svglogo.svg'
 
 const chatOptions = (
 	<Fragment>
-		<NavLink exact to='/chat' className='nav-link'>
+		<NavLink exact to='/Chat' className='nav-link'>
 			Chat
 		</NavLink>
 		<NavLink exact to='/create-profile' className='nav-link'>
