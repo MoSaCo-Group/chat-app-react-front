@@ -1,11 +1,17 @@
+
 import React, { Component } from 'react'
 import io from 'socket.io-client'
 import './Chat.css'
+
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable indent */
+/* eslint-disable no-tabs */
 // import chat from '../../../../chat-app-react-back/app/models/chat'
 import { Button, InputGroup, FormControl } from 'react-bootstrap'
 import { createChat } from '../../api/chat'
 
 const socket = io('http://localhost:7165')
+
 
 class CreateChat extends Component {
   constructor (props) {

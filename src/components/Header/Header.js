@@ -2,9 +2,23 @@
 /* eslint-disable indent */
 /* eslint-disable no-tabs */
 import React, { Fragment } from 'react'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import { Link, NavLink } from 'react-router-dom'
+import {
+	Nav,
+	NavLink,
+	NavMenu
+} from './Elements'
+import rechatLogo from '../../Images/rechatLogo.png'
+
+const chatOptions = (
+	<Fragment>
+		<NavLink exact to='/Chat' className='nav-link'>
+			Chat
+		</NavLink>
+		<NavLink exact to='/create-profile' className='nav-link'>
+			Create Profile
+		</NavLink>
+	</Fragment>
+)
 
 const authenticatedOptions = (
 	<Fragment>
@@ -14,12 +28,16 @@ const authenticatedOptions = (
 		<NavLink to='/sign-out' className='nav-link'>
 			Sign Out
 		</NavLink>
+
 		<NavLink to='/create-profile' className='nav-link'>
 			Create/Update Profile
 		</NavLink>
 		<NavLink to='/Chat' className='nav-link'>
 			Chat Room
 		</NavLink>
+
+		{chatOptions}
+
 	</Fragment>
 )
 
@@ -37,29 +55,25 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
 	<Fragment>
 		<NavLink exact to='/' className='nav-link'>
-			Home
+			<img src={rechatLogo} height='169px' width='169px'/>
 		</NavLink>
 	</Fragment>
 )
 
-const Header = ({ user }) => (
-	<Navbar bg='dark' variant='dark' expand='md'>
-		<Navbar.Brand>
-			<Link to='/' style={{ color: '#ff5722', textDecoration: 'none' }}>
-				Re-Chat
-			</Link>
-		</Navbar.Brand>
-		<Navbar.Toggle aria-controls='basic-navbar-nav' />
-		<Navbar.Collapse id='basic-navbar-nav'>
-			<Nav className='ml-auto'>
-				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
-				)}
+const Header = ({ user }) => {
+	return (
+		<>
+			<Nav useTransparent>
 				{alwaysOptions}
-				{user ? authenticatedOptions : unauthenticatedOptions}
+				<NavMenu>
+					{user && (
+						<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					)}
+					{user ? authenticatedOptions : unauthenticatedOptions}
+				</NavMenu>
 			</Nav>
-		</Navbar.Collapse>
-	</Navbar>
-)
+		</>
+	)
+}
 
 export default Header

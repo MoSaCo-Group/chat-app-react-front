@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { showProfile, updateProfile } from '../../api/profile'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { withRouter } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 
 class UpdateProfile extends Component {
   constructor (props) {
@@ -29,13 +29,13 @@ class UpdateProfile extends Component {
       .then(() => {
         msgAlert({
           heading: 'Show profile success',
-          message: 'Profile success!',
+          message: 'View Profile Success',
           variant: 'success'
         })
       })
       .catch((error) => {
         msgAlert({
-          heading: 'Show profile failed',
+          heading: 'Show Profile failed',
           message: 'Error message: ' + error.message,
           variant: 'danger'
         })
@@ -71,6 +71,9 @@ handleSubmit = (event) => {
 }
 
 render () {
+  if (this.state.updated) {
+    return <Redirect to={'/chat/' + this.props.match.params.id} />
+  }
   return (
     <Form onSubmit={this.handleSubmit}>
       <Form.Group controlId='username'>
@@ -105,7 +108,7 @@ render () {
           onChange={this.handleChange}
         />
       </Form.Group>
-      <Button type='submit'>Submit</Button>
+      <Button type='submit'>Update</Button>
     </Form>
   )
 }

@@ -37,7 +37,8 @@ handleDelete = () => {
   const { match, user, msgAlert, history } = this.props
 
   deleteProfile(match.params.id, user)
-    .then(() => history.push('/profile'))
+
+    .then(() => history.push('/create-profile'))
     .then(() => {
       msgAlert({
         heading: 'Delete success',
@@ -61,10 +62,12 @@ render () {
 
   const { username, first, last, owner } = this.state.profile
   const { user, history, match } = this.props
+  console.log(match.params)
   return (
+
     <>
-      <h3>Show Profile</h3>
-      <h4>{username}</h4>
+      <h3>Your Profile</h3>
+      <h4>Hello {username}!</h4>
       <p>First Name: {first}</p>
       <p>Last Name: {last}</p>
       {user._id === owner && (
