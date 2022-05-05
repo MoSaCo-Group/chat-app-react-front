@@ -1,62 +1,51 @@
-import React, { Component } from 'react'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import { createChat } from '../../api/chat'
+import React from 'react'
+import io from 'socket.io-client'
+// import chat from '../../../../chat-app-react-back/app/models/chat'
+import { Button, InputGroup, FormControl } from 'react-bootstrap'
 
-class Chat extends Component {
+const socket = io('http://localhost:7165')
+
+class ChatRoomComponent extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      message: ''
+      messages: [],
+      newMessage: ''
     }
   }
 
-        handleChange = (event) =>
-          this.setState({
-            [event.target.message]: event.target.value
-          })
+  componentDidMount () {
+    socket.on('chat', (message) => {
+      console.log('connected')
+    })
+  }
 
-        handleSubmit = (event) => {
-          event.preventDefault()
+  componentWillUnmount () {
+    socket.close()
+  }
 
-          const { user, msgAlert } = this.props
+  handleSubmit () {
+    // event.preventDefault()
+    socket.emit('chat', {
+      message: 'chat'
+    })
+  }
 
-          createChat(this.state, user)
-            .then(() => {
-              msgAlert({
-                heading: 'Profile created',
-                message: 'Profile created!',
-                variant: 'success'
-              })
-            })
-            .catch((error) => {
-              msgAlert({
-                heading: 'Profile creation failed',
-                message: 'Profile error: ' + error.message,
-                variant: 'danger'
-              })
-            })
-        }
-
-        render () {
-          return (
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Group controlId='message'>
-                <Form.Label>User Name</Form.Label>
-                <Form.Control
-                  required
-                  message=''
-                  value={this.state.message}
-                  placeholder='Start Chatting'
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-
-              <Button type='submit'>Submit</Button>
-            </Form>
-          )
-        }
+  render () {
+    return (
+      <div>
+        <InputGroup size='sm' className="justifyContent: 'space-between'">
+          <InputGroup.Text>
+            <Button variant='outline-secondary' onClick={this.handleSubmit}>
+Send
+            </Button>
+          </InputGroup.Text>
+          <FormControl as='textarea' aria-label='With textarea' />
+        </InputGroup>
+      </div>
+    )
+  }
 }
 
-export default Chat
+export default ChatRoomComponent
