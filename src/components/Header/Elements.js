@@ -19,7 +19,7 @@ export const Nav = styled.nav`
 `
 
 export const NavLink = styled(Link)`
-	color: white;
+	color: black;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
