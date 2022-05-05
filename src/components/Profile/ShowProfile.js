@@ -37,7 +37,7 @@ handleDelete = () => {
   const { match, user, msgAlert, history } = this.props
 
   deleteProfile(match.params.id, user)
-    .then(() => history.push('/profiles'))
+    .then(() => history.push('/profile'))
     .then(() => {
       msgAlert({
         heading: 'Delete success',
@@ -71,7 +71,7 @@ render () {
         <>
           <Button onClick={this.handleDelete}>Delete</Button>
           <Button
-            onClick={() => history.push(`/profiles/${match.params.id}/edit`)}>
+            onClick={() => history.push(`/profile/${match.params.id}/edit`)}>
                         Update
           </Button>
         </>

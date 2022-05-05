@@ -14,6 +14,12 @@ const authenticatedOptions = (
 		<NavLink to='/sign-out' className='nav-link'>
 			Sign Out
 		</NavLink>
+		<NavLink to='/create-profile' className='nav-link'>
+			Create/Update Profile
+		</NavLink>
+		<NavLink to='/Chat' className='nav-link'>
+			Chat Room
+		</NavLink>
 	</Fragment>
 )
 
@@ -37,10 +43,10 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
+	<Navbar bg='dark' variant='dark' expand='md'>
 		<Navbar.Brand>
-			<Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>
-				react-auth-template
+			<Link to='/' style={{ color: '#ff5722', textDecoration: 'none' }}>
+				Re-Chat
 			</Link>
 		</Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
