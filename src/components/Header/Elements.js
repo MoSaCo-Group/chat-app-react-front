@@ -19,7 +19,7 @@ export const Nav = styled.nav`
 `
 
 export const NavLink = styled(Link)`
-	color: white;
+	color: black;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -42,7 +42,7 @@ export const NavMenu = styled.div`
 	/* margin-right: 24px; */
 	/* Third Nav */
 	width: 100vw;
-    white-space: nowrap;
+	white-space: nowrap;
 	@media screen and (max-width: 768px) {
 		display: none;
 	}

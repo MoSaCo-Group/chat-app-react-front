@@ -2,6 +2,7 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import './App.css'
 
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
@@ -10,11 +11,13 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import CreateChat from './components/Chat/CreateChat'
 
 import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
 import Container from './components/Landing/Container'
+import MoveStuffAround from './components/MoveStuffAround'
 
 class App extends Component {
   constructor (props) {
@@ -50,8 +53,8 @@ class App extends Component {
     return (
       <Fragment>
         <Router>
-	      <Header user={user} />
-	      {msgAlerts.map((msgAlert) => (
+          <Header user={user} />
+          {msgAlerts.map((msgAlert) => (
             <AutoDismissAlert
               key={msgAlert.id}
               heading={msgAlert.heading}
@@ -61,8 +64,8 @@ class App extends Component {
               deleteAlert={this.deleteAlert}
             />
           ))}
-	      <main className='container'>
-	        <Route
+          <main className='container'>
+            <Route
               path='/sign-up'
               render={() => (
                 <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -74,6 +77,7 @@ class App extends Component {
                 <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
               )}
             />
+            <Route path='/critics' render={() => <MoveStuffAround />} />
             <AuthenticatedRoute
               user={user}
               path='/sign-out'
@@ -103,17 +107,22 @@ class App extends Component {
               exact
               user={user}
               path='/profile/:id'
-              render={() => <ShowProfile msgAlert={this.msgAlert} user={user} />}
+              render={() => (
+                <ShowProfile msgAlert={this.msgAlert} user={user} />
+              )}
             />
             <AuthenticatedRoute
               user={user}
               path='/profile/:id/edit'
               render={() => (
-                <UpdateProfile
-                  msgAlert={this.msgAlert}
-                  user={user}
-                />
+                <UpdateProfile msgAlert={this.msgAlert} user={user} />
               )}
+            />
+            <AuthenticatedRoute
+              user={user}
+              exact
+              path='/Chat'
+              render={() => <CreateChat msgAlert={this.msgAlert} user={user} />}
             />
           </main>
         </Router>

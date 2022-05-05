@@ -11,7 +11,7 @@ import rechatLogo from '../../Images/rechatLogo.png'
 
 const chatOptions = (
 	<Fragment>
-		<NavLink exact to='/chat' className='nav-link'>
+		<NavLink exact to='/Chat' className='nav-link'>
 			Chat
 		</NavLink>
 		<NavLink exact to='/create-profile' className='nav-link'>
@@ -51,7 +51,7 @@ const alwaysOptions = (
 	</Fragment>
 )
 
-const Navbar = ({ user }) => {
+const Header = ({ user }) => {
 	return (
 		<>
 			<Nav useTransparent>
@@ -67,4 +67,4 @@ const Navbar = ({ user }) => {
 	)
 }
 
-export default Navbar
+export default Header
