@@ -12,7 +12,6 @@ import { createChat } from '../../api/chat'
 
 const socket = io('http://localhost:7165')
 
-
 class CreateChat extends Component {
   constructor (props) {
     super(props)
