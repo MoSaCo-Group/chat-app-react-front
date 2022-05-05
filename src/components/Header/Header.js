@@ -14,22 +14,10 @@ const chatOptions = (
 		<NavLink exact to='/chat' className='nav-link'>
 			Chat
 		</NavLink>
-		<NavLink exact to='/profile/:id' className='nav-link'>
-			Profile
-		</NavLink>
 		<NavLink exact to='/create-profile' className='nav-link'>
-			Create Profile
-		</NavLink>
-		<NavLink exact to='/profile' className='nav-link'>
-			List of Users
+			Create/Update Profile
 		</NavLink>
 	</Fragment>
-)
-
-const profileOptions = (
-	<NavLink exact to='/profile/:id/edit' className='nav-link'>
-		Edit Profile
-	</NavLink>
 )
 
 const authenticatedOptions = (

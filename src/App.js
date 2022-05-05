@@ -15,6 +15,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
+import MoveStuffAround from './components/MoveStuffAround'
 
 class App extends Component {
   constructor (props) {
@@ -48,7 +49,7 @@ class App extends Component {
     const { msgAlerts, user } = this.state
 
     return (
-      <Fragment className="bg">
+      <Fragment>
         <Router>
           <Header user={user} />
           {msgAlerts.map((msgAlert) => (
@@ -72,6 +73,12 @@ class App extends Component {
               path='/sign-in'
               render={() => (
                 <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+              )}
+            />
+            <Route
+              path='/critics'
+              render={() => (
+                <MoveStuffAround />
               )}
             />
             <AuthenticatedRoute
