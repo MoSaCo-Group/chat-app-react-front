@@ -7,7 +7,7 @@ import Ticker from 'react-ticker'
 // {/* <div className="quote"></div>
 // <div className="person"></div> */}
 const MoveStuffAround = () => (
-	<Ticker move='false' speed='5' direction='toLeft'>
+	<Ticker move='true' speed='1' direction='toLeft'>
 		{() => (
 			<div className='amalia'>
 				&nbsp;&nbsp;&nbsp;

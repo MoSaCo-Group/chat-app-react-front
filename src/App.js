@@ -19,7 +19,7 @@ import UpdateProfile from './components/Profile/UpdateProfile'
 
 // import IndexProfile from './components/Profile/IndexProfiles'
 
-// import Container from './components/Landing/Container'
+import Container from './components/Landing/Container'
 import MoveStuffAround from './components/MoveStuffAround'
 
 class App extends Component {
@@ -68,12 +68,7 @@ class App extends Component {
                 />
               ))}
               <main className='container'>
-                {/* <Route
-                  path='/'
-                  render={() => (
-                    <Container />
-                  )}
-                /> */}
+                <Route exact path='/' render={() => <Container />} />
                 <Route
                   path='/sign-up'
                   render={() => (
@@ -86,7 +81,7 @@ class App extends Component {
                     <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
                   )}
                 />
-                <Route path='/critics' render={() => <MoveStuffAround />} />
+                <Route exact path='/critics' render={() => <MoveStuffAround />} />
                 <AuthenticatedRoute
                   user={user}
                   path='/sign-out'

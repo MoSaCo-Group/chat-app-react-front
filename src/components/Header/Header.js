@@ -7,7 +7,7 @@ import {
 	NavLink,
 	NavMenu
 } from './Elements'
-import rechatLogo from '../../Images/rechatLogo.png'
+import rechatLogo from '../../Images/navLogo.png'
 
 const chatOptions = (
 	<Fragment>

@@ -1,22 +1,23 @@
-// import React from 'react'
-// import { Container, Row, Col } from 'react-bootstrap'
-// import './container.css'
+import React, { Component } from 'react'
+import { Container, Row } from 'react-bootstrap'
+import './container.css'
+import { withRouter } from 'react-router-dom'
+import mainLogo from '../../Images/mainLogo.png'
 
-// const Landing = () => {
-//   return (
-//     <>
-//       <Container className='container-fluid'>
-//         <Row px-0>
-//           <Col className='leftCol' s={6} md={4} px={0}>
-//             <p className='landingWord'>MESSAGING MADE EASY</p>
-//           </Col>
-//           <Col className='rightCol' s={6} md={4} px={0}>
+class Landing extends Component {
+  render () {
+    // const { history } = this.props
 
-//           </Col>
-//         </Row>
-//       </Container>
-//     </>
-//   )
-// }
+    return (
+      <>
+        <Container className='container-fluid'>
+          <Row className='homePage' px-0>
+            <img src={mainLogo} />
+          </Row>
+        </Container>
+      </>
+    )
+  }
+}
 
-// export default Landing
+export default withRouter(Landing)
