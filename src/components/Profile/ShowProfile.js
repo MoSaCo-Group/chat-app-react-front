@@ -20,7 +20,6 @@ class ShowProfile extends Component {
 	componentDidMount () {
 		const { match, user, msgAlert } = this.props
 
-<<<<<<< HEAD
 		showProfile(match.params.id, user)
 			.then((res) => this.setState({ profile: res.data.profile }))
 			.then(() => {
@@ -38,25 +37,6 @@ class ShowProfile extends Component {
 				})
 			})
 	}
-=======
-    showProfile(match.params.id, user)
-      .then((res) => this.setState({ profile: res.data.profile }))
-      .then(() => {
-        msgAlert({
-          heading: 'Profile success',
-          message: 'Profile created and updated!',
-          variant: 'success'
-        })
-      })
-      .catch((error) => {
-        msgAlert({
-          heading: 'Show Profile failed',
-          message: 'Error message: ' + error.message,
-          variant: 'danger'
-        })
-      })
-  }
->>>>>>> af5953f (Add Component Updates for Styling)
 
 	handleDelete = () => {
 		const { match, user, msgAlert, history } = this.props
