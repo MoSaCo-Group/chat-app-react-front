@@ -6,7 +6,7 @@
     background-color: #1A1A1D;
 }
 
-.container {
+/* .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -15,7 +15,7 @@
     height: 50%;
     width: 60%;
     margin-top: 20px;
-}
+} */
 
 @media (min-width: 320px) and (max-width: 480px) {
     .outerContainer {
