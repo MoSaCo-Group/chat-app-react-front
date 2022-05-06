@@ -1,8 +1,6 @@
-
 import React, { Component } from 'react'
 import io from 'socket.io-client'
 import './Chat.css'
-
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable indent */
 /* eslint-disable no-tabs */
@@ -13,65 +11,67 @@ import { createChat } from '../../api/chat'
 const socket = io('http://localhost:7165')
 
 class CreateChat extends Component {
-  constructor (props) {
-    super(props)
-    console.log(this.props)
+	constructor (props) {
+		super(props)
+		console.log(this.props)
 
-    this.state = {
-      body: []
-    }
-  }
+		this.state = {
+			body: []
+		}
+	}
 
-  componentDidMount () {
-    socket.on('chat', (message) => {
-      console.log('connected')
-    })
-  }
+	componentDidMount () {
+		socket.on('chat', (message) => {
+			console.log('connected')
+		})
+	}
 
-  componentWillUnmount () {
-    socket.close()
-  }
+	componentWillUnmount () {
+		socket.close()
+	}
 
-  handleSubmit (props) {
-    // event.preventDefault()
-    // socket.emit('chat', {
-    //   body: ''
+	handleSubmit (props) {
+		// event.preventDefault()
+		// socket.emit('chat', {
+		//   body: ''
 
-    const { user } = props
-    const data = {
-      body: ' '
-    }
-    createChat(data, user)
-    // .then((msgAlert) => {
-    //   msgAlert({
-    //     heading: 'Message',
-    //     message: 'Message Sent!',
-    //     variant: 'success'
-    //   })
-    // })
-    // .catch((error, msgAlert) => {
-    //   msgAlert({
-    //     heading: 'Message failed to send',
-    //     message: 'Message error: ' + error.message,
-    //     variant: 'danger'
-    //   })
-    // })
-  }
+		const { user } = props
+		const data = {
+			body: ' '
+		}
+		createChat(data, user)
+		// .then((msgAlert) => {
+		//   msgAlert({
+		//     heading: 'Message',
+		//     message: 'Message Sent!',
+		//     variant: 'success'
+		//   })
+		// })
+		// .catch((error, msgAlert) => {
+		//   msgAlert({
+		//     heading: 'Message failed to send',
+		//     message: 'Message error: ' + error.message,
+		//     variant: 'danger'
+		//   })
+		// })
+	}
 
-  render () {
-    return (
-      <div>
-        <InputGroup size='large' className="chat">
-          <InputGroup.Text>
-            <Button variant='outline-secondary' onClick={this.handleSubmit(this.props)}>
-                  Send
-            </Button>
-          </InputGroup.Text>
-          <FormControl as='textarea' aria-label='With textarea' />
-        </InputGroup>
-      </div>
-    )
-  }
+	render () {
+		return (
+		    	<div>
+					<InputGroup size='large' className='chat'>
+						<InputGroup.Text>
+							<Button
+								variant='outline-secondary'
+								onClick={this.handleSubmit(this.props)}>
+								Send
+							</Button>
+						</InputGroup.Text>
+						<FormControl as='textarea' aria-label='With textarea' />
+					</InputGroup>
+				</div>
+		)
+	}
 }
 
 export default CreateChat

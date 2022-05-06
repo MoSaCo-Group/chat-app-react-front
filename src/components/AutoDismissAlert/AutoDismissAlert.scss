@@ -1,7 +1,7 @@
 .alert {
   align-items: center;
-  animation: .5s ease-in-out 0s 1 light-bounce-in;
-  bottom: 1rem;
+  animation: .3s ease-in-out 0s 1 light-bounce-in;
+  bottom: .8rem;
   display: flex;
   left: 0;
   margin: auto;
@@ -9,9 +9,12 @@
   position: fixed;
   right: 0;
   z-index: 10000;
+  color: #253439;
+
 
   .alert-body {
     margin-bottom: 0;
+    color: #253439;
   }
 }
 
