@@ -49,9 +49,17 @@ class App extends Component {
           }
         })
       }
+      // handleSignInClick() {
+      //   this.setState({isSignedIn: true})
+      // }
+
+      // handleSignOutClick() {
+      //   this.setState({isSignedIn: false})
+      // }
 
       render () {
         const { msgAlerts, user } = this.state
+        // const isSignedIn = this.state.isSignedIn
 
         return (
           <Fragment>
