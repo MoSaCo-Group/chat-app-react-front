@@ -2,7 +2,7 @@
 /* eslint-disable indent */
 /* eslint-disable no-tabs */
 import React, { Component, Fragment } from 'react'
-import io from 'socket.io-client'
+// import io from 'socket.io-client'
 import './Chat.css'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
@@ -10,7 +10,7 @@ import apiUrl from '../../apiConfig'
 import { Button, InputGroup, FormControl, Toast } from 'react-bootstrap'
 import { createChat } from '../../api/chat'
 
-const socket = io('http://localhost:7165')
+// const socket = io('http://localhost:7165')
 
 class CreateChat extends Component {
 	constructor (props) {
@@ -37,9 +37,9 @@ class CreateChat extends Component {
 		// })
 	}
 
-	componentWillUnmount () {
-		socket.close()
-	}
+	// componentWillUnmount () {
+	// 	socket.close()
+	// }
 
 	handleSubmit (props) {
 		// event.preventDefault()
