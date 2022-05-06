@@ -18,14 +18,13 @@
 // 			url: apiUrl + '/Chat'
 // 		})
 
-
 //     indexChat(user)
 //       .then(({data}) => this.setState({data}))
 //       .then((response) => console.log(response))
 //   }
 
 //   handleChange (props) {
-   
+
 //   }
 
 //   render () {

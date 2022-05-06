@@ -19,7 +19,8 @@ export const Nav = styled.nav`
 `
 
 export const NavLink = styled(Link)`
-	color: black;
+	color: white;
+	font-family: 'Hammersmith One', sans-serif;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
