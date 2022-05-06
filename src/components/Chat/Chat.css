@@ -1,0 +1,23 @@
+.chat {
+    position: absolute;
+    bottom: 0;
+    width: 75%
+}
+
+.one {
+float: left;
+margin-left: 40em;
+align-self: center;
+}
+
+.two {
+float: right;
+/* margin-right: 14em; */
+margin: 27em;
+margin-top: 12em;
+align-self: center;
+}
+
+.body {
+    color: black;
+}

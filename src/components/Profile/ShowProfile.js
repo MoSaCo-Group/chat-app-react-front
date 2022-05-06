@@ -1,84 +1,111 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable indent */
+/* eslint-disable no-tabs */
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import { withRouter } from 'react-router-dom'
 import { showProfile, deleteProfile } from '../../api/profile'
+import './profile.css'
+import Card from 'react-bootstrap/Card'
 
 class ShowProfile extends Component {
-  constructor (props) {
-    super(props)
+	constructor (props) {
+		super(props)
 
-    this.state = {
-      profile: null
-    }
-  }
+		this.state = {
+			profile: null
+		}
+	}
 
-  componentDidMount () {
-    const { match, user, msgAlert } = this.props
+	componentDidMount () {
+		const { match, user, msgAlert } = this.props
 
-    showProfile(match.params.id, user)
-      .then((res) => this.setState({ profile: res.data.profile }))
-      .then(() => {
-        msgAlert({
-          heading: 'Show Profile success',
-          message: 'Show Profile success',
-          variant: 'success'
-        })
-      })
-      .catch((error) => {
-        msgAlert({
-          heading: 'Show Profile failed',
-          message: 'Error message: ' + error.message,
-          variant: 'danger'
-        })
-      })
-  }
+		showProfile(match.params.id, user)
+			.then((res) => this.setState({ profile: res.data.profile }))
+			.then(() => {
+				msgAlert({
+					heading: 'Profile success',
+					message: 'Profile created and updated!',
+					variant: 'success'
+				})
+			})
+			.catch((error) => {
+				msgAlert({
+					heading: 'Show Profile failed',
+					message: 'Error message: ' + error.message,
+					variant: 'danger'
+				})
+			})
+	}
 
-handleDelete = () => {
-  const { match, user, msgAlert, history } = this.props
+	handleDelete = () => {
+		const { match, user, msgAlert, history } = this.props
 
-  deleteProfile(match.params.id, user)
-    .then(() => history.push('/profile'))
-    .then(() => {
-      msgAlert({
-        heading: 'Delete success',
-        message: 'Successfully deleted',
-        variant: 'success'
-      })
-    })
-    .catch((error) => {
-      msgAlert({
-        heading: 'Delete fail',
-        message: 'Delete error: ' + error.message,
-        variant: 'danger'
-      })
-    })
-}
+		deleteProfile(match.params.id, user)
+			.then(() => history.push('/create-profile'))
+			.then(() => {
+				msgAlert({
+					heading: 'Delete success',
+					message: 'Successfully deleted',
+					variant: 'success'
+				})
+			})
+			.catch((error) => {
+				msgAlert({
+					heading: 'Delete fail',
+					message: 'Delete error: ' + error.message,
+					variant: 'danger'
+				})
+			})
+	}
 
-render () {
-  if (this.state.profile === null) {
-    return 'Loading...'
-  }
+	render () {
+		if (this.state.profile === null) {
+			return 'Loading...'
+		}
 
-  const { username, first, last, owner } = this.state.profile
-  const { user, history, match } = this.props
-  return (
-    <>
-      <h3>Show Profile</h3>
-      <h4>{username}</h4>
-      <p>First Name: {first}</p>
-      <p>Last Name: {last}</p>
-      {user._id === owner && (
-        <>
-          <Button onClick={this.handleDelete}>Delete</Button>
-          <Button
-            onClick={() => history.push(`/profile/${match.params.id}/edit`)}>
-                        Update
-          </Button>
-        </>
-      )}
-    </>
-  )
-}
+		const { username, first, last, owner } = this.state.profile
+		const { user, history, match } = this.props
+		console.log(match.params)
+		return (
+			<div className='container col-sm-10 col-md-8'>
+				<>
+					<Card className='card' border='light' style={{ width: '30rem' }}>
+						<Card.Header className='cardHeader'>
+							{username}&apos;s Profile
+						</Card.Header>
+						<Card.Body className='cardColor'>
+							<Card.Title className='cardColor'>
+								<p>Hello {username}!</p>
+							</Card.Title>
+							<Card.Text>
+								<p>First Name: {first}</p>
+								<p>Last Name: {last}</p>
+							</Card.Text>
+							{user._id === owner && (
+								<>
+									<Button
+										className='formButton btn1'
+										variant='outline-dark'
+										onClick={this.handleDelete}>
+										Delete
+									</Button>
+									<Button
+										className='formButton btn1'
+										variant='outline-dark'
+										onClick={() =>
+											history.push(`/profile/${match.params.id}/edit`)
+										}>
+										Update
+									</Button>
+								</>
+							)}
+						</Card.Body>
+					</Card>
+				</>
+			</div>
+		)
+	}
 }
 
 export default withRouter(ShowProfile)
