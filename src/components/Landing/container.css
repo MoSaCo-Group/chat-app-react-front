@@ -1,0 +1,31 @@
+
+.container-fluid {
+    background: #253439;
+}
+
+.homePage {
+    display: inline-block;
+}
+.leftcol {
+    width: 100%;
+}
+
+.rightcol {
+    width: 100%;
+}
+
+.img {
+    size: 1em;
+
+}
+
+
+@media all and (max-width:30em) {
+    a.button1 {
+        display: block;
+        margin: 0.4em auto;
+    }
+    .container-fluid {
+        display: block;
+    }
+}
