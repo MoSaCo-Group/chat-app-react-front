@@ -53,11 +53,12 @@ Initial wireframes:
 
 ### [Link to Back End Repo](https://github.com/MoSaCo-Group/chat-app-react-back)
 ### Links to Deployed Sites:
-
+- [Link to the API Deployed](https://sleepy-river-31745.herokuapp.com/)
+- [Link to the Client Deployed](https://mosaco-group.github.io/chat-app-react-front/)
+  
 ## The Team: MoSaCo Group
 -  <a href="https://github.com/ms00l" target="_blank">Moe Suleiman</a>
 - <a href="https://github.com/SakoPak" target="_blank">Sako Pak</a>
 - <a href="https://github.com/Jackson916" target="_blank">Colin Jackson</a>
 
 _Thank you for checking out our work!_
-

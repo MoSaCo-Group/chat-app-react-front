@@ -16,9 +16,7 @@
 
 .img {
     size: 1em;
-
 }
-
 
 @media all and (max-width:30em) {
     a.button1 {
