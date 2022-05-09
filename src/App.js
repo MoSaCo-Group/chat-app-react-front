@@ -11,7 +11,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import CreateChat from './components/Chat/CreateChat'
+import InputChat from './components/Chat/InputChat'
 
 import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
@@ -76,7 +76,15 @@ class App extends Component {
                 />
               ))}
               <main className='container'>
-                <Route exact path='/' render={() => <Container />} />
+                <Route
+                  exact
+                  path='/chat-app-react-front'
+                  render={() => <Container />}
+                />
+                <Route
+                  exact path='/'
+                  render={() => <Container />}
+                />
                 <Route
                   path='/sign-up'
                   render={() => (
@@ -89,7 +97,11 @@ class App extends Component {
                     <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
                   )}
                 />
-                <Route exact path='/critics' render={() => <MoveStuffAround />} />
+                <Route
+                  exact
+                  path='/critics'
+                  render={() => <MoveStuffAround />}
+                />
                 <AuthenticatedRoute
                   user={user}
                   path='/sign-out'
@@ -135,7 +147,7 @@ class App extends Component {
                   exact
                   path='/Chat'
                   render={() => (
-                    <CreateChat msgAlert={this.msgAlert} user={user} />
+                    <InputChat msgAlert={this.msgAlert} user={user} />
                   )}
                 />
               </main>

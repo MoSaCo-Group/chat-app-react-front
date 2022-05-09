@@ -8,7 +8,7 @@ export const createChat = (data, user) => {
     url: apiUrl + '/Chat/',
     data: {
       chat: {
-        body: data.body
+        body: data
       }
     },
     headers: {
