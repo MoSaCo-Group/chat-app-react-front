@@ -45,9 +45,9 @@ handleSubmit = (event) => {
 
   const { user } = this.props
   createChat(this.state.body, user)
-
+  console.log('axios call performed')
   // listening to all events emitted from server
-  socket.on('From server', (message) => {
+  socket.on('chat message', (message) => {
     console.log('From server: ', message)
   })
 }
