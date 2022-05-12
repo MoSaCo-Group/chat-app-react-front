@@ -16,9 +16,6 @@ import InputChat from './components/Chat/InputChat'
 import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
-
-// import IndexProfile from './components/Profile/IndexProfiles'
-
 import Container from './components/Landing/Container'
 import MoveStuffAround from './components/MoveStuffAround'
 
@@ -49,18 +46,9 @@ class App extends Component {
           }
         })
       }
-      // handleSignInClick() {
-      //   this.setState({isSignedIn: true})
-      // }
-
-      // handleSignOutClick() {
-      //   this.setState({isSignedIn: false})
-      // }
 
       render () {
         const { msgAlerts, user } = this.state
-        // const isSignedIn = this.state.isSignedIn
-
         return (
           <Fragment>
             <Router>
