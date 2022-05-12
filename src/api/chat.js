@@ -17,12 +17,6 @@ export const createChat = (data, user) => {
   })
 }
 
-// const data = {
-// chat: {
-// body: '',
-// },
-// }
-
 export const indexChat = (user) => {
   return axios({
     url: apiUrl + '/index-chat',
