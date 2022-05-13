@@ -4,52 +4,66 @@ body {
     padding-bottom: 3rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
-
-#form {
-    background: white;
-    padding: 0.25rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.main-container {
     display: flex;
-    height: 3rem;
-    box-sizing: border-box;
-    backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
 }
 
-#input {
-    border: none;
-    padding: 0 1rem;
-    flex-grow: 1;
-    border-radius: 2rem;
-    margin: 0.25rem;
+.chat-window {
+    width: 300px;
+    height: 420px;
 }
 
-#input:focus {
-    outline: none;
+.chat-window .chat-body {
+    height: calc(450px - (45px + 70px));
+    border: 1px solid #263238;
+    background: #fff;
+    position: relative;
+}
+.chat-window .chat-body .message-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-#form>button {
-    background: #333;
-    border: none;
-    padding: 0 1rem;
-    margin: 0.25rem;
-    border-radius: 3px;
-    outline: none;
-    color: #fff;
+.chat-window .chat-body .message-container::-webkit-scrollbar {
+    display: none;
+}
+.chat-window .chat-body {
+    padding: 10px;
+    display: flex;
+}
+.chat-window .chat-body .message-content {
+    width: auto;
+    height: auto;
+    min-height: 40px;
+    max-width: 120px;
+    background-color: #a2daeb;
+    border-radius: 5px;
+    color: black;
+    align-items: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+.chat-window .chat-footer {
+    height: 40px;
+    border: 1px solid #263238;
+    border-top: none;
+    display: flex;
 }
 
-#messages {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#messages>li {
-    padding: 0.5rem 1rem;
-}
-
-#messages>li:nth-child(odd) {
-    background: #efefef;
+.chat-window .chat-footer input {
+    height: 100%;
+    flex: 85%;
+    border: 0;
+    padding: 0 0.7em;
+    font-size: 1em;
+    border-right: 1px dotted #607d8b;
+    outline: none; 
 }
