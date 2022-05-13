@@ -1,21 +1,24 @@
 // state with 1 Message
 
 import React, { Component } from 'react'
-import { Button, Form, Card } from 'react-bootstrap'
-import { createChat } from '../../api/chat'
+import { Button, Form } from 'react-bootstrap'
+import { createChat, indexChat } from '../../api/chat'
 import './InputChat.css'
+// import MessageIndex from './MessageIndex'
 import {
   initiateSocketConnection,
   disconnectSocket,
   listenForChatMessage
 } from './SocketWorker'
+import ScrollToBottom from 'react-scroll-to-bottom'
 
 class InputChat extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      body: ' '
+      body: ' ',
+      messages: []
     }
     // this.socket = io('http://localhost:4741')
   }
@@ -44,6 +47,7 @@ handleChange = (event) => {
 // on submitting the form value, it emits a message to the server
 handleSubmit = (event) => {
   event.preventDefault()
+
   console.log('submit button clicked')
 
   const { user, msgAlert } = this.props
@@ -60,9 +64,9 @@ handleSubmit = (event) => {
     })
     .then((res) => {
       console.log(res.data.chat.body)
-      // put messages into an array, so we can map through them later for display
-      const messages = this.setState([{ res: res.data.chat.body }])
-      return messages
+
+      const message = this.setState([{ res: res.data.chat.body }])
+      return message
     })
 
     .catch((error) => {
@@ -71,50 +75,52 @@ handleSubmit = (event) => {
         message: 'Chat creation error: ' + error.message,
         variant: 'danger'
       })
-      console.log('axios call performed')
     })
 
-  // listening to all events emitted from server
-  // this.socket.on('chat message', (message) => {
-  //   console.log('From server: ', message)
-  // })
+  indexChat(user)
+    .then((res) => this.setState({ messages: res.data.chat }))
+    .then(() => console.log(this.state.messages))
 }
 
 render () {
+  const { messages } = this.state
+  let messagesJSX
+  if (!messages) {
+    messagesJSX = 'Loading...'
+  } else {
+    messagesJSX = messages.map((message) => (
+      // id for each chat message
+      <div key={message._id}>{message.body}</div>
+    ))
+  }
+
   return (
-  // <><Toast className="toast" role="alert" aria-live="assertive" aria-atomic="true">
-  //   <Toast.Header className="toast-header">
-  //     <strong className="me-auto">Bootstrap</strong>
-  //     <small className="text-muted">just now</small>
-  //     <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-  //   </Toast.Header>
-  //   <Toast.Body className="toast-body">
-  //     {response}
-  //   </Toast.Body>
-  // </Toast>
     <>
-      <Card className='messageDisplay'>
-        <Card.Header>Message from User</Card.Header>
-        <Card.Body>
-          <div>Messages will go here</div>
-        </Card.Body>
-      </Card>
-      <Card className='body'>
-        <Card.Header as='h5'></Card.Header>
-        <Card.Body>
-          <Card.Title>Send Chat</Card.Title>
-          <ul className='messages'></ul>
-          <Form onSubmit={this.handleSubmit} className='form'>
-            <input
-              onChange={this.handleChange}
-              name='body'
-              value={this.state.body}
-              autoComplete='off'
-            />
-            <Button type='submit'>Send</Button>
-          </Form>
-        </Card.Body>
-      </Card>
+      <div className='main-container'>
+        <div className='chat-window'>
+          <div className='chat-body'>
+            <ScrollToBottom className='message-container'>
+              <div className='message-content'>{messagesJSX}</div>
+            </ScrollToBottom>
+          </div>
+        </div>
+      </div>
+
+      <div className='chat-footer'>
+        <Form onSubmit={this.handleSubmit} className='form'>
+          <input
+            type='text'
+            className='form-control'
+            placeholder='Hi there...'
+            onChange={this.handleChange}
+            name='body'
+            value={this.state.body}
+            autoComplete='off'
+          />
+          <Button className='form-button btn btn-outline-light' type='submit'>Send
+          </Button>
+        </Form>
+      </div>
     </>
   )
 }

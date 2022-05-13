@@ -18,9 +18,10 @@ export const createChat = (data, user) => {
 }
 
 export const indexChat = (user) => {
+  console.log(user)
   return axios({
-    url: apiUrl + '/index-chat',
     method: 'GET',
+    url: apiUrl + '/Chat/',
     headers: {
       Authorization: `Bearer ${user.token}`
     }
