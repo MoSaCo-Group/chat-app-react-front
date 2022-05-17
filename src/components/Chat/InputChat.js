@@ -1,10 +1,8 @@
-// state with 1 Message
 
 import React, { Component } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { createChat, indexChat } from '../../api/chat'
 import './InputChat.css'
-// import MessageIndex from './MessageIndex'
 import {
   initiateSocketConnection,
   disconnectSocket,
@@ -20,7 +18,6 @@ class InputChat extends Component {
       body: ' ',
       messages: []
     }
-    // this.socket = io('http://localhost:4741')
   }
 
   // listening for chat messages emitted back from the server
@@ -55,6 +52,7 @@ handleSubmit = (event) => {
   createChat(this.state.body, user)
     .then((res) => {
       console.log(res)
+      console.log(res.data.chat._id)
       msgAlert({
         heading: 'Chat created',
         message: 'Chat sent!',
@@ -62,13 +60,9 @@ handleSubmit = (event) => {
       })
       return res
     })
-    .then((res) => {
-      console.log(res.data.chat.body)
-
-      const message = this.setState([{ res: res.data.chat.body }])
-      return message
+    .then(() => {
+      this.setState({ body: '' })
     })
-
     .catch((error) => {
       msgAlert({
         heading: 'Chat creation failed',
@@ -84,14 +78,18 @@ handleSubmit = (event) => {
 
 render () {
   const { messages } = this.state
+  const { user } = this.props
   let messagesJSX
   if (!messages) {
     messagesJSX = 'Loading...'
   } else {
-    messagesJSX = messages.map((message) => (
-      // id for each chat message
-      <div key={message._id}>{message.body}</div>
-    ))
+    messagesJSX = messages.map((message) => {
+      if (message.owner === user._id) {
+        return <div className='owner-message' key={message._id}>{message.body}</div>
+      } else {
+        return <div className='each-message' key={message._id}>{message.body}</div>
+      }
+    })
   }
 
   return (
@@ -100,7 +98,8 @@ render () {
         <div className='chat-window'>
           <div className='chat-body'>
             <ScrollToBottom className='message-container'>
-              <div className='message-content'>{messagesJSX}</div>
+              <div className='message-index'>{messagesJSX}</div>
+              <br></br>
             </ScrollToBottom>
           </div>
         </div>

@@ -6,8 +6,6 @@ import mainLogo from '../../Images/mainLogo.png'
 
 class Landing extends Component {
   render () {
-    // const { history } = this.props
-
     return (
       <>
         <Container className='container-fluid'>
