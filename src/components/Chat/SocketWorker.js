@@ -20,3 +20,16 @@ export const listenForChatMessage = (callback) => {
     callback(data.chat)
   })
 }
+
+export const createClientMessage = (body, user) => {
+  socket.emit('client message', { body, user })
+}
+
+export const onReceiveMessage = (callback) => {
+  socket.on('server message', (data) => {
+    console.log(data)
+    console.log(callback)
+    callback(data)
+    console.log('after callback', data)
+  })
+}

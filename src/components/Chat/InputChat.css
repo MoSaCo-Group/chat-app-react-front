@@ -12,8 +12,16 @@ body {
 
 .chat-window {
     width: 300px;
-    height: 420px;
+    height: 375px;
 }
+
+/* .chat-footer {
+    width: 800px;
+    display: flex;
+    align-items: center;
+        justify-content: center;
+   
+} */
 
 .chat-window .chat-body {
     height: calc(450px - (45px + 70px));
@@ -34,23 +42,54 @@ body {
 .chat-window .chat-body {
     padding: 10px;
     display: flex;
+    flex-direction: column;
+    margin: auto;
 }
-.chat-window .chat-body .message-content {
-    width: auto;
+.chat-window .chat-body .each-message {
+    margin-right: auto;
     height: auto;
     min-height: 40px;
-    max-width: 120px;
-    background-color: #a2daeb;
-    border-radius: 5px;
+    max-width: 150px;
+    background-color: #d9d9d9;
+    border-radius: 7px;
     color: black;
-    align-items: center;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
+    align-items: right;
+    padding: auto;
     overflow-wrap: break-word;
     word-break: break-word;
 }
+
+.chat-window .chat-body .owner-message {
+    background-color: #38ACEC;
+    position: relative;
+    margin-left: auto;
+    width: auto;
+    height: auto;
+    min-height: 40px;
+    max-width: 150px;
+    border-radius: 7px;
+    align-items: right;
+    margin-right: 5px;
+    padding: auto;
+    overflow-wrap: break-word;
+    word-break: break-word;     
+}
+.each-message {
+    padding: 10px 10px;
+    align-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+} 
+
+.owner-message {
+    margin-left: auto;
+    position: relative;
+    padding: 10px 10px;
+    align-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .chat-window .chat-footer {
     height: 40px;
     border: 1px solid #263238;

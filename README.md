@@ -49,6 +49,7 @@ Initial wireframes:
 ### Opportunities for Future Iterations
 - Sending private messages
 - Sending images via messages
+- Setting up different chat rooms
 
 
 ### [Link to Back End Repo](https://github.com/MoSaCo-Group/chat-app-react-back)
