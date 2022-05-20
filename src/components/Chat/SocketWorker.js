@@ -1,6 +1,6 @@
 import { io } from 'socket.io-client'
 
-const ENDPOINT = 'http://localhost:4741'
+const ENDPOINT = 'https://sleepy-river-31745.herokuapp.com'
 
 let socket
 // opening the Socket connection
