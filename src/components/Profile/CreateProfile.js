@@ -34,7 +34,6 @@ handleSubmit = (event) => {
   let responseData
   createProfile(this.state, user)
     .then((res) => {
-      console.log(res)
       msgAlert({
         heading: 'Profile created',
         message: 'Profile created!',
@@ -43,7 +42,6 @@ handleSubmit = (event) => {
       return res
     })
     .then((res) => {
-      console.log(history, res.data.profile._id)
       return (responseData = res.data.profile._id)
     })
     .then(() => {

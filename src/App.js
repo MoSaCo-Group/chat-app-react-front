@@ -15,7 +15,6 @@ import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
 import Container from './components/Landing/Container'
-import MoveStuffAround from './components/MoveStuffAround'
 
 class App extends Component {
   constructor (props) {
@@ -82,11 +81,6 @@ class App extends Component {
                   render={() => (
                     <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
                   )}
-                />
-                <Route
-                  exact
-                  path='/critics'
-                  render={() => <MoveStuffAround />}
                 />
                 <AuthenticatedRoute
                   user={user}

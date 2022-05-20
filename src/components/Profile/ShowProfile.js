@@ -64,7 +64,7 @@ render () {
 
   const { username, first, last, owner } = this.state.profile
   const { user, history, match } = this.props
-  console.log(match.params)
+
   return (
     <div className='container col-sm-10 col-md-8'>
       <>
