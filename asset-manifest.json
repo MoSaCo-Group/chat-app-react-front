@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/chat-app-react-front/static/css/main.01dee472.chunk.css",
-    "main.js": "/chat-app-react-front/static/js/main.61e510a0.chunk.js",
-    "main.js.map": "/chat-app-react-front/static/js/main.61e510a0.chunk.js.map",
+    "main.css": "/chat-app-react-front/static/css/main.c1e33ff8.chunk.css",
+    "main.js": "/chat-app-react-front/static/js/main.563ad6ae.chunk.js",
+    "main.js.map": "/chat-app-react-front/static/js/main.563ad6ae.chunk.js.map",
     "runtime-main.js": "/chat-app-react-front/static/js/runtime-main.0d254e18.js",
     "runtime-main.js.map": "/chat-app-react-front/static/js/runtime-main.0d254e18.js.map",
-    "static/js/2.d930f60f.chunk.js": "/chat-app-react-front/static/js/2.d930f60f.chunk.js",
-    "static/js/2.d930f60f.chunk.js.map": "/chat-app-react-front/static/js/2.d930f60f.chunk.js.map",
+    "static/js/2.f9199601.chunk.js": "/chat-app-react-front/static/js/2.f9199601.chunk.js",
+    "static/js/2.f9199601.chunk.js.map": "/chat-app-react-front/static/js/2.f9199601.chunk.js.map",
     "index.html": "/chat-app-react-front/index.html",
-    "static/css/main.01dee472.chunk.css.map": "/chat-app-react-front/static/css/main.01dee472.chunk.css.map",
-    "static/js/2.d930f60f.chunk.js.LICENSE.txt": "/chat-app-react-front/static/js/2.d930f60f.chunk.js.LICENSE.txt",
+    "static/css/main.c1e33ff8.chunk.css.map": "/chat-app-react-front/static/css/main.c1e33ff8.chunk.css.map",
+    "static/js/2.f9199601.chunk.js.LICENSE.txt": "/chat-app-react-front/static/js/2.f9199601.chunk.js.LICENSE.txt",
     "static/media/mainLogo.5ba7d203.png": "/chat-app-react-front/static/media/mainLogo.5ba7d203.png"
   },
   "entrypoints": [
     "static/js/runtime-main.0d254e18.js",
-    "static/js/2.d930f60f.chunk.js",
-    "static/css/main.01dee472.chunk.css",
-    "static/js/main.61e510a0.chunk.js"
+    "static/js/2.f9199601.chunk.js",
+    "static/css/main.c1e33ff8.chunk.css",
+    "static/js/main.563ad6ae.chunk.js"
   ]
 }
