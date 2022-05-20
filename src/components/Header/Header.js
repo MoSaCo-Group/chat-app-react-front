@@ -46,6 +46,7 @@ const alwaysOptions = (
 const Header = ({ user }) => {
   return (
     <>
+
       <Nav useTransparent>
         {alwaysOptions}
         <NavMenu>

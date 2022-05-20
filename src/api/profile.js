@@ -45,16 +45,6 @@ export const showProfile = (id, user) => {
   })
 }
 
-// export const indexProfiles = (user) => {
-//   return axios({
-//     url: apiUrl + '/profiles/',
-//     method: 'GET',
-//     headers: {
-//       Authorization: `Bearer ${user.token}`
-//     }
-//   })
-// }
-
 export const deleteProfile = (id, user) => {
   return axios({
     url: apiUrl + '/profile/' + id,
